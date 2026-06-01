@@ -1,6 +1,14 @@
 RewriteEngine On
 RewriteBase /lenterailmu/
 
+# Redirect dari /api/pages/... ke /pages/... jika diakses langsung oleh browser (mencegah prefix /api/ di URL)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^api/pages/(.*)$ pages/$1 [R=301,L]
+
+# Redirect api/index.php ke / jika diakses langsung oleh browser
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^api/index\.php$ ./ [R=301,L]
+
 # Rewrite /pages/... ke api/pages/... secara internal (hanya untuk file PHP atau request direktori)
 RewriteCond %{REQUEST_URI} !^/lenterailmu/api/
 RewriteCond %{REQUEST_URI} \.php$ [NC,OR]
