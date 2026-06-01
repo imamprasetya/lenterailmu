@@ -8,14 +8,14 @@
     { "source": "/lenterailmu/assets/:path*", "destination": "/assets/:path*" },
     { "source": "/lenterailmu/components/:path*", "destination": "/components/:path*" },
     { "source": "/lenterailmu/firebase/:path*", "destination": "/firebase/:path*" },
-    { "source": "/lenterailmu/pages/:path*", "destination": "/api/pages/:path*" },
+    { "source": "/lenterailmu/pages/(.*)\\.php", "destination": "/api/pages/$1.php" },
     { "source": "/lenterailmu", "destination": "/api/index.php" },
     { "source": "/lenterailmu/", "destination": "/api/index.php" },
     
     { "source": "/assets/:path*", "destination": "/assets/:path*" },
     { "source": "/components/:path*", "destination": "/components/:path*" },
     { "source": "/firebase/:path*", "destination": "/firebase/:path*" },
-    { "source": "/pages/:path*", "destination": "/api/pages/:path*" },
+    { "source": "/pages/(.*)\\.php", "destination": "/api/pages/$1.php" },
     { "source": "/", "destination": "/api/index.php" }
   ]
 }
