@@ -97,10 +97,13 @@
                             ${titleOverlay}
                         </div>
                     </div>
+                    <div class="badge-status-wrapper">
+                        <span class="status-tag ${tersedia ? 'available' : 'checkout'}">${tersedia ? 'Tersedia' : 'Dipinjam'}</span>
+                    </div>
                     <div class="info-body">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                        <div class="info-header-row">
                             <small>${b.kategori || 'Umum'}</small>
-                            <span class="status-tag ${tersedia ? 'available' : 'checkout'}">${tersedia ? 'Tersedia' : 'Dipinjam'}</span>
+                            <span class="status-tag badge-desktop ${tersedia ? 'available' : 'checkout'}">${tersedia ? 'Tersedia' : 'Dipinjam'}</span>
                         </div>
                         <h4>${b.judul || '-'}</h4>
                         <p>${b.penulis || '-'}</p>

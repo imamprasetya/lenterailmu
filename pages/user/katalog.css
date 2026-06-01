@@ -113,7 +113,12 @@
 .badge-status-wrapper {
     display: none;
     text-align: center;
-    padding: 8px 12px 0;
+    padding: 6px 12px 0;
+}
+
+.badge-status-wrapper .badge-status {
+    font-size: 10px;
+    padding: 3px 8px;
 }
 
 .card-info-header {

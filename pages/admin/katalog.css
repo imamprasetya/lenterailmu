@@ -95,6 +95,24 @@
     color: #b45309;
 }
 
+.badge-status-wrapper {
+    display: none;
+    text-align: center;
+    padding: 6px 12px 0;
+}
+
+.badge-status-wrapper .status-tag {
+    font-size: 9px;
+    padding: 3px 8px;
+}
+
+.info-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
 .book-cover-portrait {
     height: 100%;
     aspect-ratio: 2 / 3;
@@ -178,6 +196,14 @@
     .cover-wrapper {
         height: 200px;
         padding: 10px;
+    }
+
+    .badge-status-wrapper {
+        display: block;
+    }
+
+    .badge-desktop {
+        display: none;
     }
 }
 
