@@ -500,7 +500,7 @@
 
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const isPassword = inputElem.type'password';
+                const isPassword = inputElem.type === 'password';
                 inputElem.type = isPassword ? 'text' : 'password';
                 btn.innerHTML = `<i class="fa-regular fa-eye${isPassword ? '-slash' : ''}"></i>`;
             });
@@ -578,13 +578,13 @@
                 console.error('Error:', error);
                 let pesan = 'Gagal menyimpan perubahan';
 
-                if (error.code'auth/wrong-password') {
+                if (error.code === 'auth/wrong-password') {
                     pesan = 'Kata sandi saat ini salah';
-                } else if (error.code'auth/email-already-in-use') {
+                } else if (error.code === 'auth/email-already-in-use') {
                     pesan = 'Email sudah digunakan oleh akun lain';
-                } else if (error.code'auth/invalid-email') {
+                } else if (error.code === 'auth/invalid-email') {
                     pesan = 'Format email tidak valid';
-                } else if (error.code'auth/requires-recent-login') {
+                } else if (error.code === 'auth/requires-recent-login') {
                     pesan = 'Terlalu lama tidak aktif. Silakan login kembali dan coba lagi';
                 } else if (error.message) {
                     pesan = error.message;
