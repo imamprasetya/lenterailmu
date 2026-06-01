@@ -676,11 +676,14 @@ textarea {
         left: 0;
         width: 260px;
         height: calc(100vh - 64px);
+        height: calc(100dvh - 64px);
         background: var(--bg-white);
         border-right: 1px solid var(--border);
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
         z-index: 99;
         animation: slideInLeft 0.2s ease-out;
+        overflow-y: auto;
+        padding-bottom: 40px;
     }
 
     .profile-name {

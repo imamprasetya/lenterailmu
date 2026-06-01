@@ -18,9 +18,28 @@
             text-align: center;
             color: white;
         }
+        .splash-logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 20px;
+            object-fit: contain;
+            animation: pulseLogo 2s infinite ease-in-out;
+        }
+        @keyframes pulseLogo {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+            }
+            50% {
+                transform: scale(1.06);
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+            }
+        }
         .loading-box h1 {
             font-size: 32px;
             margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         .loading-box p {
             opacity: 0.8;
@@ -36,7 +55,8 @@
 </head>
 <body>
     <div class="loading-box">
-        <h1><i class="fa-solid fa-book-open" style="margin-right: 8px;"></i> Lentera Ilmu</h1>
+        <img src="assets/image/logo.png" alt="Lentera Ilmu Logo" class="splash-logo">
+        <h1>Lentera Ilmu</h1>
         <p>Memuat perpustakaan digital...</p>
         <div class="loading-spinner"></div>
     </div>
