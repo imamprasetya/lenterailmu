@@ -18,7 +18,7 @@
         <section class="search-section">
             <div style="position: relative; width: 100%; display: flex; align-items: center;">
                 <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; color: var(--text-muted); font-size: 16px;"></i>
-                <input type="text" class="main-search" id="searchInput" placeholder="Cari buku, penulis, atau ISBN..." style="padding-left: 45px; width: 100%;">
+                <input type="text" class="main-search" id="searchInput" placeholder="Cari buku atau penulis..." style="padding-left: 45px; width: 100%;">
             </div>
 
             <div class="filter-container">

@@ -199,7 +199,7 @@
                 });
 
                 let totalDipinjam = semuaPeminjamanUser.length;
-                let peminjamanAktif = semuaPeminjamanUser.filter(p => p.status  'dipinjam').length;
+                let peminjamanAktif = semuaPeminjamanUser.filter(p => p.status === 'dipinjam').length;
                 const aktivitasHTML = [];
 
                 const aktivitasTerbaru = semuaPeminjamanUser.slice(0, 5);
