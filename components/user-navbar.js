@@ -1,12 +1,4 @@
-/**
- * ============================================
- * LENTERA ILMU - Navbar Global User
- * ============================================
- * Cara pakai di setiap halaman user:
- * 
- * <div id="navbar-container"></div>
- * <script type="module" src="../../components/user-navbar.js"></script>
- */
+
 
 import { auth, cekLogin, logout } from '../firebase/firebase-config.js';
 
@@ -20,12 +12,12 @@ function isActive(page) {
 cekLogin().then(user => {
     const namaUser = user.nama || user.displayName || user.email?.split('@')[0] || 'Pengguna';
     const inisial = namaUser.charAt(0).toUpperCase();
-    
-    // Render avatar: foto profil atau inisial
-    const avatarContent = user.foto 
-        ? `<img src="${user.foto}" alt="${namaUser}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">` 
+
+    //foto profil
+    const avatarContent = user.foto
+        ? `<img src="${user.foto}" alt="${namaUser}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`
         : inisial;
-    
+
     const navbarHTML = `
     <header class="navbar">
         <div class="nav-left">
@@ -88,19 +80,19 @@ cekLogin().then(user => {
         </div>
     </header>
     `;
- 
+
     const container = document.getElementById('navbar-container');
     if (container) {
         container.innerHTML = navbarHTML;
- 
-        // Event: Profile dropdown
+
+        // Profile dropdown
         const profileArea = document.getElementById('profileDropdown');
         profileArea.addEventListener('click', () => {
             window.location.href = '/lenterailmu/pages/user/profile.php';
         });
         profileArea.style.cursor = 'pointer';
 
-        // Event: Hamburger toggle
+        // Hamburger toggle
         const hamburgerBtn = document.getElementById('userHamburgerBtn');
         const navLinks = document.getElementById('userNavLinks');
         if (hamburgerBtn && navLinks) {
@@ -108,11 +100,11 @@ cekLogin().then(user => {
                 e.stopPropagation();
                 navLinks.classList.toggle('show-mobile-nav');
                 const isOpen = navLinks.classList.contains('show-mobile-nav');
-                hamburgerBtn.innerHTML = isOpen 
-                    ? `<i class="fa-solid fa-xmark"></i>` 
+                hamburgerBtn.innerHTML = isOpen
+                    ? `<i class="fa-solid fa-xmark"></i>`
                     : `<i class="fa-solid fa-bars"></i>`;
             });
-            
+
             // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (navLinks.classList.contains('show-mobile-nav') && !navLinks.contains(e.target) && e.target !== hamburgerBtn) {
@@ -121,8 +113,8 @@ cekLogin().then(user => {
                 }
             });
         }
-        
-        // Event: Logout (Desktop & Mobile)
+
+        // Logout (Desktop & Mobile)
         const btnLogout = document.getElementById('btnLogout');
         if (btnLogout) {
             btnLogout.addEventListener('click', () => {
@@ -142,7 +134,7 @@ cekLogin().then(user => {
             });
         }
 
-        // Event: Search global (Desktop)
+        // Search global (Desktop)
         const searchForm = document.getElementById('navSearchForm');
         const searchInput = document.getElementById('globalSearch');
         if (searchForm && searchInput) {
@@ -166,7 +158,7 @@ cekLogin().then(user => {
             });
         }
 
-        // Event: Search global (Mobile)
+        // Search global (Mobile)
         const mobileSearchForm = document.getElementById('mobileNavSearchForm');
         const mobileSearchInput = document.getElementById('mobileGlobalSearch');
         if (mobileSearchForm && mobileSearchInput) {
