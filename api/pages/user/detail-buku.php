@@ -120,13 +120,18 @@
                         </div>
 
                         <div class="cta-actions">
-                            ${sedangDipinjam 
-                                ? `<a href="riwayat.php" class="btn-main-borrow active-borrow" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);"><i class="fa-solid fa-hourglass-half" style="margin-right: 8px;"></i> Sedang Anda Pinjam (Lihat Riwayat)</a>`
-                                : tersedia 
-                                    ? `<a href="pinjam.php?id=${bukuId}" class="btn-main-borrow"><i class="fa-solid fa-book-bookmark" style="margin-right: 8px;"></i> Pinjam Buku</a>`
-                                    : `<button class="btn-main-borrow disabled" disabled><i class="fa-solid fa-ban" style="margin-right: 8px;"></i> Stok Habis</button>`
+                            ${user.role === 'admin'
+                                ? `<div class="admin-info-banner" style="display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.12)); border: 1px solid rgba(99,102,241,0.25); border-radius: 12px; color: var(--text-secondary, #64748b); font-size: 0.95rem;">
+                                    <i class="fa-solid fa-user-shield" style="font-size: 1.2rem; color: #6366f1;"></i>
+                                    <span>Anda login sebagai <strong style="color: #6366f1;">Admin</strong> — hanya dapat melihat detail buku.</span>
+                                  </div>`
+                                : sedangDipinjam 
+                                    ? `<a href="riwayat.php" class="btn-main-borrow active-borrow" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);"><i class="fa-solid fa-hourglass-half" style="margin-right: 8px;"></i> Sedang Anda Pinjam (Lihat Riwayat)</a>`
+                                    : tersedia 
+                                        ? `<a href="pinjam.php?id=${bukuId}" class="btn-main-borrow"><i class="fa-solid fa-book-bookmark" style="margin-right: 8px;"></i> Pinjam Buku</a>`
+                                        : `<button class="btn-main-borrow disabled" disabled><i class="fa-solid fa-ban" style="margin-right: 8px;"></i> Stok Habis</button>`
                             }
-                            <button class="btn-secondary-save"><i class="fa-regular fa-bookmark" style="margin-right: 8px;"></i> Simpan Nanti</button>
+                            ${user.role !== 'admin' ? `<button class="btn-secondary-save"><i class="fa-regular fa-bookmark" style="margin-right: 8px;"></i> Simpan Nanti</button>` : ''}
                         </div>
 
                         <div class="perks-list">

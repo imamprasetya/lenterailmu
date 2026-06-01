@@ -132,10 +132,15 @@
                             ${coverText}
                         </div>
                     </div>
+                    <div class="badge-status-wrapper">
+                        <span class="badge-status ${tersedia ? 'in-stock' : 'on-loan'}">
+                            ${tersedia ? 'Tersedia' : 'Dipinjam'}
+                        </span>
+                    </div>
                     <div class="card-info">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <div class="card-info-header">
                             <small class="meta-cat">${buku.kategori || 'Umum'}</small>
-                            <span class="badge-status ${tersedia ? 'in-stock' : 'on-loan'}">
+                            <span class="badge-status badge-desktop ${tersedia ? 'in-stock' : 'on-loan'}">
                                 ${tersedia ? 'Tersedia' : 'Dipinjam'}
                             </span>
                         </div>

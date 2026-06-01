@@ -110,6 +110,19 @@
     color: #b45309;
 }
 
+.badge-status-wrapper {
+    display: none;
+    text-align: center;
+    padding: 8px 12px 0;
+}
+
+.card-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
 .book-cover-portrait {
     height: 100%;
     aspect-ratio: 2 / 3;
@@ -225,6 +238,16 @@
         overflow-x: auto;
         flex-wrap: nowrap;
         padding-bottom: 8px;
+    }
+
+    /* Show badge below cover on mobile */
+    .badge-status-wrapper {
+        display: block;
+    }
+
+    /* Hide the badge inside card-info on mobile */
+    .badge-desktop {
+        display: none;
     }
 }
 

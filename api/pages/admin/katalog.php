@@ -91,7 +91,7 @@
                     : `background: ${b.warnaCover || '#1d3557'};`;
                 const titleOverlay = b.gambar ? '' : `<div class="inner-title">${b.judul || '-'}</div>`;
                 return `
-                 <div class="admin-book-card">
+                 <div class="admin-book-card" onclick="window.location.href='../user/detail-buku.php?id=${b.id}'" style="cursor: pointer;">
                     <div class="cover-wrapper">
                         <div class="book-cover-portrait" style="${coverStyle}">
                             ${titleOverlay}
