@@ -1,8 +1,10 @@
 RewriteEngine On
 RewriteBase /lenterailmu/
 
-# Rewrite /pages/... ke api/pages/... secara internal
+# Rewrite /pages/... ke api/pages/... secara internal (hanya untuk file PHP atau request direktori)
 RewriteCond %{REQUEST_URI} !^/lenterailmu/api/
+RewriteCond %{REQUEST_URI} \.php$ [NC,OR]
+RewriteCond %{REQUEST_URI} /$
 RewriteRule ^pages/(.*)$ api/pages/$1 [L,QSA]
 
 # Rewrite root/index.php ke api/index.php

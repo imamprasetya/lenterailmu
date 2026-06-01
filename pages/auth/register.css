@@ -1,4 +1,4 @@
-/* RESET & BASIC STYLES */
+/* --- RESET & BASIC STYLES --- */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ body {
     animation: fadeIn 0.4s ease-in-out;
 }
 
-/* SISI KIRI (GAMBAR LATAR) */
+/* --- SISI KIRI (GAMBAR LATAR) --- */
 .left-side {
     flex: 1;
     background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.85) 100%), url('../../assets/image/perpus.jpg');
@@ -69,7 +69,7 @@ body {
     opacity: 0.9;
 }
 
-/*SISI KANAN (FORM REGISTER)*/
+/* --- SISI KANAN (FORM REGISTER) --- */
 .right-side {
     flex: 1;
     display: flex;
@@ -124,7 +124,7 @@ h2 {
     margin-bottom: 25px;
 }
 
-/*INPUT ELEMEN*/
+/* --- INPUT ELEMEN --- */
 .input-group {
     margin-bottom: 18px;
 }
@@ -154,7 +154,7 @@ h2 {
     box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
 }
 
-/* CHECKBOX TERMS & CONDITIONS */
+/* --- CHECKBOX TERMS & CONDITIONS --- */
 .form-options {
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@ h2 {
     accent-color: #0052cc;
 }
 
-/* TOMBOL REGISTER */
+/* --- TOMBOL REGISTER --- */
 .btn-login {
     width: 100%;
     padding: 14px;
@@ -193,7 +193,7 @@ h2 {
     background-color: #0041a3;
 }
 
-/*GARIS PEMBATAS*/
+/* --- GARIS PEMBATAS (OR) --- */
 .divider {
     text-align: center;
     margin: 20px 0;
@@ -220,7 +220,7 @@ h2 {
     right: 0;
 }
 
-/*TEKS LINK KE LOGIN*/
+/* --- TEKS LINK KE LOGIN --- */
 .register-text {
     text-align: center;
     font-size: 0.85rem;
@@ -237,7 +237,7 @@ h2 {
     text-decoration: underline;
 }
 
-/*  FOOTER ATASBAWAH  */
+/* --- FOOTER ATASBAWAH --- */
 .footer-links {
     position: absolute;
     bottom: 30px;
@@ -255,7 +255,7 @@ h2 {
     color: #333333;
 }
 
-/*  ANIMASI & RESPONSIVE LAYAR HP  */
+/* --- ANIMASI & RESPONSIVE LAYAR HP --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
