@@ -183,10 +183,25 @@
 
 @media (max-width: 480px) {
     .admin-catalog-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
-
+ 
     .cover-wrapper {
-        height: 260px;
+        height: 180px;
+        padding: 8px;
+    }
+ 
+    .info-body {
+        padding: 12px;
+    }
+ 
+    .info-body h4 {
+        font-size: 13px;
+    }
+ 
+    .info-body p {
+        font-size: 11px;
+        margin-bottom: 8px;
     }
 }

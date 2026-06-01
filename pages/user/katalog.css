@@ -216,6 +216,11 @@
         gap: 12px;
     }
 
+    .card-image-wrapper {
+        height: 220px;
+        padding: 10px;
+    }
+
     .filter-tags {
         overflow-x: auto;
         flex-wrap: nowrap;
@@ -225,6 +230,25 @@
 
 @media (max-width: 480px) {
     .catalog-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card-image-wrapper {
+        height: 180px;
+        padding: 8px;
+    }
+
+    .card-info {
+        padding: 12px;
+    }
+
+    .card-info h4 {
+        font-size: 13px;
+    }
+
+    .card-info .author {
+        font-size: 11px;
+        margin-bottom: 8px;
     }
 }
