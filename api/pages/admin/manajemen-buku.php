@@ -92,9 +92,15 @@
                             <option value="">Pilih kategori</option>
                             <option value="Fiksi">Fiksi</option>
                             <option value="Sains">Sains</option>
-                            <option value="Teknologi">Teknologi</option>
                             <option value="Sejarah">Sejarah</option>
                             <option value="Filsafat">Filsafat</option>
+                            <option value="Teknologi">Teknologi</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Psikologi">Psikologi</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                            <option value="Politik">Politik</option>
+                            <option value="Agama">Agama</option>
+                            <option value="Pemrograman">Pemrograman</option>
                             <option value="Pendidikan">Pendidikan</option>
                             <option value="Lainnya">Lainnya</option>
                         </select>

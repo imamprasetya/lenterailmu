@@ -29,6 +29,12 @@
                     <span class="tag" data-kategori="Sejarah">Sejarah</span>
                     <span class="tag" data-kategori="Filsafat">Filsafat</span>
                     <span class="tag" data-kategori="Teknologi">Teknologi</span>
+                    <span class="tag" data-kategori="Kesehatan">Kesehatan</span>
+                    <span class="tag" data-kategori="Psikologi">Psikologi</span>
+                    <span class="tag" data-kategori="Ekonomi">Ekonomi</span>
+                    <span class="tag" data-kategori="Politik">Politik</span>
+                    <span class="tag" data-kategori="Agama">Agama</span>
+                    <span class="tag" data-kategori="Pemrograman">Pemrograman</span>
                 </div>
             </div>
         </section>

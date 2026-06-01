@@ -22,8 +22,15 @@
                     <span class="pill-tag active" data-kategori="semua">Semua Kategori</span>
                     <span class="pill-tag" data-kategori="Fiksi">Fiksi</span>
                     <span class="pill-tag" data-kategori="Sains">Sains</span>
-                    <span class="pill-tag" data-kategori="Teknologi">Teknologi</span>
                     <span class="pill-tag" data-kategori="Sejarah">Sejarah</span>
+                    <span class="pill-tag" data-kategori="Filsafat">Filsafat</span>
+                    <span class="pill-tag" data-kategori="Teknologi">Teknologi</span>
+                    <span class="pill-tag" data-kategori="Kesehatan">Kesehatan</span>
+                    <span class="pill-tag" data-kategori="Psikologi">Psikologi</span>
+                    <span class="pill-tag" data-kategori="Ekonomi">Ekonomi</span>
+                    <span class="pill-tag" data-kategori="Politik">Politik</span>
+                    <span class="pill-tag" data-kategori="Agama">Agama</span>
+                    <span class="pill-tag" data-kategori="Pemrograman">Pemrograman</span>
                 </div>
             </section>
 
