@@ -19,9 +19,10 @@
             color: white;
         }
         .splash-logo {
+            display: block;
+            margin: 0 auto 20px auto;
             height: 80px;
             width: auto;
-            margin-bottom: 20px;
             object-fit: contain;
             animation: pulseLogo 2s infinite ease-in-out;
         }
