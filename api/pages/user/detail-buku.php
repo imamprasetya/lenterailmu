@@ -10,11 +10,8 @@
 </head>
 <body>
 
-    <!-- NAVBAR GLOBAL -->
-    <div id="navbar-container"></div>
-
     <main class="container">
-        <a href="katalog.php" class="back-link"><i class="fa-solid fa-arrow-left" style="margin-right: 6px;"></i> Kembali ke Katalog</a>
+        <a href="katalog.php" class="back-link" id="backLink"><i class="fa-solid fa-arrow-left" style="margin-right: 6px;"></i> Kembali ke Katalog</a>
 
         <section class="detail-layout" id="detailLayout">
             <!-- LOADING STATE -->
@@ -44,6 +41,37 @@
         const bukuId = urlParams.get('id');
 
         cekLogin().then(async (user) => {
+            // Setup layout based on role
+            if (user.role === 'admin') {
+                const headerContainer = document.createElement('div');
+                headerContainer.id = 'admin-header-container';
+                document.body.insertBefore(headerContainer, document.body.firstChild);
+
+                const main = document.querySelector('main');
+                main.className = 'dashboard-content';
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'dashboard-wrapper';
+                
+                const sidebarContainer = document.createElement('div');
+                sidebarContainer.id = 'sidebar-container';
+                
+                main.parentNode.insertBefore(wrapper, main);
+                wrapper.appendChild(sidebarContainer);
+                wrapper.appendChild(main);
+
+                const backLink = document.getElementById('backLink');
+                if (backLink) backLink.href = '../admin/katalog.php';
+
+                import('../../components/admin-sidebar.js?v=1.2');
+            } else {
+                const headerContainer = document.createElement('div');
+                headerContainer.id = 'navbar-container';
+                document.body.insertBefore(headerContainer, document.body.firstChild);
+
+                import('../../components/user-navbar.js?v=1.2');
+            }
+
             if (!bukuId) {
                 document.getElementById('detailLayout').innerHTML = 
                     '<p class="empty-state">ID buku tidak ditemukan. <a href="katalog.php">Kembali ke katalog</a></p>';
@@ -182,6 +210,5 @@
         });
     </script>
 
-    <script type="module" src="../../components/user-navbar.js?v=1.2"></script>
 </body>
 </html>
