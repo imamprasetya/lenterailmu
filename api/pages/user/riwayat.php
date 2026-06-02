@@ -75,7 +75,7 @@
                     <h4><i class="fa-solid fa-circle-info" style="margin-right: 8px; color: var(--primary);"></i> Peraturan & Denda</h4>
                     <ul class="rule-list">
                         <li>Maksimal peminjaman mandiri adalah <strong>14 hari</strong> sebelum harus diperpanjang.</li>
-                        <li>Satu akun dibatasi maksimal <strong>5 buku bersamaan</strong>.</li>
+                        <li>Satu akun dibatasi maksimal <strong>10 buku bersamaan</strong>.</li>
                         <li>Keterlambatan pengembalian dikenakan denda administratif sesuai kebijakan.</li>
                     </ul>
                     <div class="help-box">

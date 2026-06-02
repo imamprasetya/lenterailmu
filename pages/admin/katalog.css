@@ -18,10 +18,51 @@
     box-shadow: 0 0 0 4px rgba(37, 99, 235, .1);
 }
 
+.tag-row-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.scroll-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+    font-size: 12px;
+    z-index: 2;
+}
+
+.scroll-arrow:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
 .tag-row {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex: 1;
+    min-width: 0;
+    cursor: grab;
+}
+
+.tag-row::-webkit-scrollbar {
+    display: none;
 }
 
 .pill-tag {
@@ -34,6 +75,8 @@
     border: 1px solid var(--border);
     color: var(--text-muted);
     transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .pill-tag:hover {
@@ -111,6 +154,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6px;
+    overflow: hidden;
 }
 
 .book-cover-portrait {
@@ -146,6 +190,10 @@
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65%;
 }
 
 .info-body h4 {
@@ -161,6 +209,9 @@
     font-size: 13px;
     color: var(--text-muted);
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .control-row {
@@ -182,16 +233,7 @@
         gap: 12px;
     }
 
-    .tag-row {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 8px;
-        -webkit-overflow-scrolling: touch;
-    }
 
-    .tag-row::-webkit-scrollbar {
-        display: none;
-    }
 
     .cover-wrapper {
         height: 200px;

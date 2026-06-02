@@ -18,19 +18,23 @@
                     <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; color: var(--text-muted); font-size: 16px;"></i>
                     <input type="text" placeholder="Cari katalog berdasarkan judul, penulis, kode..." class="big-search" id="searchKatalog" style="padding-left: 45px; width: 100%;">
                 </div>
-                <div class="tag-row" id="tagRow">
-                    <span class="pill-tag active" data-kategori="semua">Semua Kategori</span>
-                    <span class="pill-tag" data-kategori="Fiksi">Fiksi</span>
-                    <span class="pill-tag" data-kategori="Sains">Sains</span>
-                    <span class="pill-tag" data-kategori="Sejarah">Sejarah</span>
-                    <span class="pill-tag" data-kategori="Filsafat">Filsafat</span>
-                    <span class="pill-tag" data-kategori="Teknologi">Teknologi</span>
-                    <span class="pill-tag" data-kategori="Kesehatan">Kesehatan</span>
-                    <span class="pill-tag" data-kategori="Psikologi">Psikologi</span>
-                    <span class="pill-tag" data-kategori="Ekonomi">Ekonomi</span>
-                    <span class="pill-tag" data-kategori="Politik">Politik</span>
-                    <span class="pill-tag" data-kategori="Agama">Agama</span>
-                    <span class="pill-tag" data-kategori="Pemrograman">Pemrograman</span>
+                <div class="tag-row-wrapper">
+                    <button class="scroll-arrow scroll-left" id="scrollLeft" aria-label="Geser kiri"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="tag-row" id="tagRow">
+                        <span class="pill-tag active" data-kategori="semua">Semua Kategori</span>
+                        <span class="pill-tag" data-kategori="Fiksi">Fiksi</span>
+                        <span class="pill-tag" data-kategori="Sains">Sains</span>
+                        <span class="pill-tag" data-kategori="Sejarah">Sejarah</span>
+                        <span class="pill-tag" data-kategori="Filsafat">Filsafat</span>
+                        <span class="pill-tag" data-kategori="Teknologi">Teknologi</span>
+                        <span class="pill-tag" data-kategori="Kesehatan">Kesehatan</span>
+                        <span class="pill-tag" data-kategori="Psikologi">Psikologi</span>
+                        <span class="pill-tag" data-kategori="Ekonomi">Ekonomi</span>
+                        <span class="pill-tag" data-kategori="Politik">Politik</span>
+                        <span class="pill-tag" data-kategori="Agama">Agama</span>
+                        <span class="pill-tag" data-kategori="Pemrograman">Pemrograman</span>
+                    </div>
+                    <button class="scroll-arrow scroll-right" id="scrollRight" aria-label="Geser kanan"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </section>
 
@@ -115,6 +119,48 @@
             }).join('');
         }
     </script>
+
+    <script>
+        // === Drag-to-scroll & Arrow buttons for tag row ===
+        (function() {
+            const slider = document.getElementById('tagRow');
+            const btnLeft = document.getElementById('scrollLeft');
+            const btnRight = document.getElementById('scrollRight');
+            let isDown = false, startX, scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX;
+                scrollLeft = slider.scrollLeft;
+                slider.style.cursor = 'grabbing';
+            });
+            slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const walk = (e.pageX - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+
+            const scrollAmount = 200;
+            btnLeft.addEventListener('click', () => {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            btnRight.addEventListener('click', () => {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            function updateArrows() {
+                btnLeft.style.display = slider.scrollLeft > 0 ? 'flex' : 'none';
+                btnRight.style.display = slider.scrollLeft < (slider.scrollWidth - slider.clientWidth - 1) ? 'flex' : 'none';
+            }
+            slider.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            setTimeout(updateArrows, 100);
+        })();
+    </script>
+
     <script type="module" src="../../components/admin-sidebar.js?v=1.2"></script>
 </body>
 </html>

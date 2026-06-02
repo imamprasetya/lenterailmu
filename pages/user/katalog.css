@@ -21,14 +21,49 @@
 
 .filter-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.scroll-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+    font-size: 12px;
+    z-index: 2;
+}
+
+.scroll-arrow:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
 .filter-tags {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex: 1;
+    min-width: 0;
+    cursor: grab;
+}
+
+.filter-tags::-webkit-scrollbar {
+    display: none;
 }
 
 .tag {
@@ -41,6 +76,8 @@
     border: 1px solid var(--border);
     color: var(--text-muted);
     transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .tag:hover {
@@ -126,6 +163,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+    overflow: hidden;
 }
 
 .book-cover-portrait {
@@ -162,6 +200,10 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65%;
 }
 
 .card-info h4 {
@@ -178,6 +220,9 @@
     font-size: 13px;
     color: var(--text-muted);
     margin-bottom: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .btn-action {
@@ -239,11 +284,7 @@
         padding: 10px;
     }
 
-    .filter-tags {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 8px;
-    }
+
 
     /* Show badge below cover on mobile */
     .badge-status-wrapper {

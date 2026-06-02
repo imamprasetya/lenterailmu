@@ -12,7 +12,10 @@
     <div class="container">
         <div class="left-side">
             <div class="brand-overlay">
-                <h1>Lentera Ilmu</h1>
+                <div class="brand-title-wrapper" style="display: flex; align-items: center; gap: 16px; margin-bottom: 15px;">
+                    <img src="../../assets/image/logo.png" alt="Lentera Ilmu Logo" class="brand-logo-left" style="height: 64px; width: auto; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));">
+                    <h1 style="margin: 0; line-height: 1;">Lentera Ilmu</h1>
+                </div>
                 <p>Cahaya pengetahuan untuk masa depan yang lebih cerah.</p>
             </div>
         </div>

@@ -285,7 +285,7 @@
 
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 18px;
     margin-top: 16px;
 }
@@ -327,6 +327,9 @@
 .book-card p {
     font-size: 12px;
     color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* FOOTER */
@@ -392,14 +395,13 @@
     color: #64748b;
 }
 
-/* RESPONSIVE */
 @media (max-width: 1024px) {
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .books-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
@@ -412,8 +414,13 @@
         grid-template-columns: 1fr;
     }
 
+    .recommendations {
+        padding: 16px;
+    }
+
     .books-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
     }
 
     .activity-container {
@@ -432,5 +439,24 @@
     .footer-links {
         flex-wrap: wrap;
         gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendations {
+        padding: 12px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+    
+    .book-card h4 {
+        font-size: 11px;
+    }
+    
+    .book-card p {
+        font-size: 10px;
     }
 }

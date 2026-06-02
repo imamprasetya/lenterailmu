@@ -96,7 +96,7 @@
                     <h3><i class="fa-solid fa-circle-info" style="margin-right: 8px; color: var(--primary);"></i> Peraturan Perpustakaan</h3>
                     <ul class="rule-list">
                         <li>Maksimal peminjaman: <strong>14 hari</strong></li>
-                        <li>Batas buku: <strong>5 buku bersamaan</strong></li>
+                        <li>Batas buku: <strong>10 buku bersamaan</strong></li>
                         <li>Keterlambatan dikenakan denda administratif</li>
                     </ul>
                 </div>

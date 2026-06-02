@@ -49,7 +49,7 @@
 
                 <div class="policy-box">
                     <span><i class="fa-solid fa-circle-info" style="color: var(--primary); font-size: 18px;"></i></span>
-                    <p><strong>Kebijakan Peminjaman:</strong> Anda dapat meminjam hingga 5 buku sekaligus. Pengembalian harus dilakukan sebelum pukul 18:00 di tanggal jatuh tempo.</p>
+                    <p><strong>Kebijakan Peminjaman:</strong> Anda dapat meminjam hingga 10 buku sekaligus. Pengembalian harus dilakukan sebelum pukul 18:00 di tanggal jatuh tempo.</p>
                 </div>
             </aside>
 
@@ -152,23 +152,34 @@
                     return;
                 }
 
-                // Cek apakah user sedang meminjam buku ini dan belum dikembalikan
+                // Cek semua peminjaman aktif user untuk batas limit 10 buku
                 const peminjamanQuery = query(
                     collection(db, 'peminjaman'),
-                    where('userId', '==', user.uid),
-                    where('bukuId', '==', bukuId)
+                    where('userId', '==', user.uid)
                 );
                 const peminjamanSnapshot = await getDocs(peminjamanQuery);
                 let sedangDipinjam = false;
+                let totalAktif = 0;
+                
                 peminjamanSnapshot.forEach(doc => {
-                    const status = doc.data().status;
+                    const data = doc.data();
+                    const status = data.status;
                     if (status === 'dipinjam' || status === 'proses_kembali' || status === 'terlambat') {
-                        sedangDipinjam = true;
+                        totalAktif++;
+                        if (data.bukuId === bukuId) {
+                            sedangDipinjam = true;
+                        }
                     }
                 });
 
                 if (sedangDipinjam) {
                     alert('Anda sedang meminjam buku ini dan belum mengembalikannya. Anda tidak dapat meminjam kembali sebelum buku dikembalikan.');
+                    window.location.href = 'riwayat.php';
+                    return;
+                }
+
+                if (totalAktif >= 10) {
+                    alert('Batas peminjaman tercapai! Anda hanya dapat meminjam maksimal 10 buku secara bersamaan. Silakan kembalikan buku lain terlebih dahulu.');
                     window.location.href = 'riwayat.php';
                     return;
                 }

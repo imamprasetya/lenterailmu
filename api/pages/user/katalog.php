@@ -22,6 +22,7 @@
             </div>
 
             <div class="filter-container">
+                <button class="scroll-arrow scroll-left" id="scrollLeft" aria-label="Geser kiri"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="filter-tags" id="filterTags">
                     <span class="tag active" data-kategori="semua">Semua Kategori</span>
                     <span class="tag" data-kategori="Fiksi">Fiksi</span>
@@ -36,6 +37,7 @@
                     <span class="tag" data-kategori="Agama">Agama</span>
                     <span class="tag" data-kategori="Pemrograman">Pemrograman</span>
                 </div>
+                <button class="scroll-arrow scroll-right" id="scrollRight" aria-label="Geser kanan"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -157,6 +159,49 @@
             document.getElementById('showingText').textContent = 
                 `Menampilkan ${bukuFiltered.length} dari ${semuaBuku.length} buku`;
         }
+    </script>
+
+    <script>
+        // === Drag-to-scroll & Arrow buttons for filter tags ===
+        (function() {
+            const slider = document.getElementById('filterTags');
+            const btnLeft = document.getElementById('scrollLeft');
+            const btnRight = document.getElementById('scrollRight');
+            let isDown = false, startX, scrollLeft;
+
+            // Drag to scroll
+            slider.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.tag')) { startX = e.pageX; scrollLeft = slider.scrollLeft; }
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+            });
+            slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const walk = (e.pageX - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Arrow buttons
+            const scrollAmount = 200;
+            btnLeft.addEventListener('click', () => {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            btnRight.addEventListener('click', () => {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            // Show/hide arrows based on scroll position
+            function updateArrows() {
+                btnLeft.style.display = slider.scrollLeft > 0 ? 'flex' : 'none';
+                btnRight.style.display = slider.scrollLeft < (slider.scrollWidth - slider.clientWidth - 1) ? 'flex' : 'none';
+            }
+            slider.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            setTimeout(updateArrows, 100);
+        })();
     </script>
 
     <script type="module" src="../../components/user-navbar.js?v=1.2"></script>
