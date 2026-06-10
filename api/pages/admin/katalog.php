@@ -121,7 +121,7 @@
     </script>
 
     <script>
-        // === Drag-to-scroll & Arrow buttons for tag row ===
+        // Drag-to-scroll & Arrow buttons for tag row
         (function() {
             const slider = document.getElementById('tagRow');
             const btnLeft = document.getElementById('scrollLeft');
